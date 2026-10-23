@@ -1,0 +1,22 @@
+{
+  "name": "animal-well-homage",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "动物井 (Animal Well) 致敬复刻 — TypeScript + Canvas 2D 自研引擎",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "check": "tsc --noEmit",
+    "validate": "tsx scripts/validate.ts",
+    "shot": "scripts/shot.sh",
+    "e2e": "scripts/e2e.sh"
+  },
+  "devDependencies": {
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.5",
+    "vite-plugin-singlefile": "^2.3.4"
+  }
+}

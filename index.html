@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+  <title>动物井 · 致敬复刻</title>
+  <style>
+    :root { color-scheme: dark; --bg: #07070c; --fg: #d8d8e8; }
+    html, body { margin: 0; padding: 0; height: 100%; background: var(--bg); color: var(--fg); overflow: hidden; font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", system-ui, sans-serif; }
+    #stage { position: fixed; inset: 0; display: flex; align-items: center; justify-content: center; }
+    #frame { position: relative; }
+    canvas { display: block; image-rendering: pixelated; image-rendering: crisp-edges; }
+    #game { position: absolute; left: 0; top: 0; }
+    #ui   { position: absolute; left: 0; top: 0; pointer-events: none; }
+    #touch { position: fixed; inset: 0; display: none; pointer-events: none; z-index: 5; }
+    #touch.on { display: block; }
+    .tgrp { position: absolute; bottom: calc(14px + env(safe-area-inset-bottom, 0px)); display: grid; gap: 10px; pointer-events: none; }
+    .tgrp.left { left: calc(14px + env(safe-area-inset-left, 0px)); grid-template-columns: 58px 58px; }
+    .tgrp.right { right: calc(14px + env(safe-area-inset-right, 0px)); grid-template-columns: 58px 58px 58px; }
+    .tb { pointer-events: auto; width: 58px; height: 58px; border-radius: 50%; border: 1px solid rgba(216,216,232,0.35); background: rgba(20,22,42,0.6); color: var(--fg); font: 600 17px system-ui, sans-serif; touch-action: none; user-select: none; -webkit-user-select: none; -webkit-tap-highlight-color: transparent; }
+    .tb.down { background: rgba(141,245,255,0.45); color: #07070c; }
+    .tb.main { background: rgba(255,227,110,0.28); }
+  </style>
+</head>
+<body>
+  <div id="stage"><div id="frame"><canvas id="game"></canvas><canvas id="ui"></canvas></div></div>
+  <div id="touch" aria-hidden="true">
+    <div class="tgrp left">
+      <button class="tb" data-a="left">◀</button><button class="tb" data-a="right">▶</button>
+    </div>
+    <div class="tgrp right">
+      <button class="tb" data-a="up">▲</button><button class="tb" data-a="cycle">换</button><button class="tb" data-a="map">图</button>
+      <button class="tb" data-a="down">▼</button><button class="tb main" data-a="use">用</button><button class="tb main" data-a="jump">跳</button>
+    </div>
+  </div>
+  <script type="module" src="/src/main.ts"></script>
+</body>
+</html>
